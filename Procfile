@@ -1,1 +1,1 @@
-web: waitress-serve --call "__init__:create_app"
+web: waitress-serve --call "app:create_app"
