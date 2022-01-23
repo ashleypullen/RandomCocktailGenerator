@@ -1,2 +1,27 @@
-from waitress import serve
-web: waitress-serve --port=$PORT website:app
+
+
+from flask_login import current_user
+from website import create_app
+from flask import Blueprint, render_template
+import requests
+import json
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from os import path
+from flask_login import LoginManager
+from flask import Blueprint, render_template, request, flash, redirect, url_for
+from .models import User
+from werkzeug.security import generate_password_hash, check_password_hash
+from . import db
+from flask_login import login_user, login_required, logout_user, current_user
+from . import db
+from flask_login import UserMixin
+from sqlalchemy.sql import func
+from flask import Blueprint, render_template
+from flask_login import login_user, login_required, logout_user, current_user
+
+python == 3.9.7
+flask==2.0.1
+werkzeug == 2.0.1
+sqlalchemy == 1.4.29
+waitress == 2.0.0
