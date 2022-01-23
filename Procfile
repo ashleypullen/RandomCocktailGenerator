@@ -1,1 +1,1 @@
-web: waitress-serve --port=$PORT setup.py
+web: waitress-serve --call "__init__:create_app"
