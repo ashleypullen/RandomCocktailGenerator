@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Random Cocktail{% endblock %}
+
+{% block content%}
+
+<br />
+{% for key, value in image.items() %}
+<style>
+    .img-thumbnail{
+        border-radius: 25px;
+        border-width: 5px;
+        border-color: rgb(220, 53, 69);
+        align-items: center;
+    }
+</style>
+<div class="text-center">
+<img src="{{ value }}" class="img-thumbnail" width="50%" height="50%">
+</div>
+{% endfor %}
+
+<br />
+        {% for key, value in cocktail.items() %}
+        <style>
+            .col-md{
+                margin: auto;
+                background-color: #ccb1a2;
+                height: 120px;
+                width: 900px;
+                display: inline-block
+            }
+        </style>
+        <div class="container-fluid text-center">
+        <div class="col-md text-black">
+            <br />
+                <h3 class="font-weight-bolder font-"><u>{{ key }}</u></h3>
+        </div>
+        <div class="col-md text-white bg-danger">
+            <br />
+                <h5>{{ value }}</h5>
+        </div>
+        <br />
+        </div>
+        {% endfor %}
+{% endblock content %}
