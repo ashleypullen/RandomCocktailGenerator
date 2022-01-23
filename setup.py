@@ -1,27 +1,57 @@
-
-
 from flask_login import current_user
 from website import create_app
 from flask import Blueprint, render_template
 import requests
 import json
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from os import path
-from flask_login import LoginManager
-from flask import Blueprint, render_template, request, flash, redirect, url_for
-from .models import User
-from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
-from flask_login import login_user, login_required, logout_user, current_user
-from . import db
-from flask_login import UserMixin
-from sqlalchemy.sql import func
-from flask import Blueprint, render_template
-from flask_login import login_user, login_required, logout_user, current_user
 
-python == 3.9.7
-flask==2.0.1
-werkzeug == 2.0.1
-sqlalchemy == 1.4.29
-waitress == 2.0.0
+app = create_app()
+
+@app.route('/random')
+def randomCocktail():
+    request = requests.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+    cocktails = request.content
+    images = request.content
+    data = json.loads(cocktails)
+    imageData = json.loads(images)
+
+    images = []
+
+    for image in imageData["drinks"]:
+        image = {
+            "image": image["strDrinkThumb"]
+        }
+        images.append(image)
+
+
+    cocktails = []
+
+    for cocktail in data["drinks"]:
+        cocktail = {
+            "Drink Name": cocktail["strDrink"],
+            "Category": cocktail["strCategory"],
+            "Alcohol": cocktail["strAlcoholic"],
+            "Glass": cocktail["strGlass"],
+            "Instructions": cocktail["strInstructions"],
+            "Ingredient 1": cocktail["strIngredient1"],
+            "Ingredient 2": cocktail["strIngredient2"],
+            "Ingredient 3": cocktail["strIngredient3"],
+            "Ingredient 4": cocktail["strIngredient4"],
+            "Ingredient 5": cocktail["strIngredient5"],
+            "Ingredient 6": cocktail["strIngredient6"],
+            "Ingredient 7": cocktail["strIngredient7"],
+            "Measurement1": cocktail["strMeasure1"],
+            "Measurement2": cocktail["strMeasure2"],
+            "Measurement3": cocktail["strMeasure3"],
+            "Measurement4": cocktail["strMeasure4"],
+            "Measurement5": cocktail["strMeasure5"],
+            "Measurement6": cocktail["strMeasure6"],
+            "Measurement7": cocktail["strMeasure7"]
+        }
+
+        cocktails.append(cocktail)
+
+    return render_template('random.html', cocktail=cocktail, image=image, user=current_user)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
