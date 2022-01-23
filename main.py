@@ -53,5 +53,5 @@ def randomCocktail():
     return render_template('random.html', cocktail=cocktail, image=image, user=current_user)
 
 
-if __name__ == "__setup__":
+if __name__ == "__main__":
     app.run()
