@@ -29,7 +29,7 @@ Flask-Login==0.5.0
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
 gunicorn==20.1.0
-heroku==0.1.4
+heroku3==5.1.4
 idna==3.3
 iniconfig==1.1.1
 ipykernel==5.5.5
@@ -81,12 +81,11 @@ pygame==2.0.1
 Pygments==2.9.0
 pynput==1.7.3
 pyparsing==2.4.7
+pypiwin32==223;platform_system=="Windows"
 pyrsistent==0.17.3
 pytest==6.2.4
-python-dateutil==1.5
+python-dateutil==2.8.2
 pytz==2021.1
-pywin32==301
-pywinpty==1.1.2
 pyzmq==22.1.0
 qtconsole==5.1.0
 QtPy==1.9.0
