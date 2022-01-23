@@ -81,7 +81,7 @@ pygame==2.0.1
 Pygments==2.9.0
 pynput==1.7.3
 pyparsing==2.4.7
-pypiwin32==223
+pypiwin32==223;platform_system=="Windows"
 pyrsistent==0.17.3
 pytest==6.2.4
 python-dateutil==2.8.2
