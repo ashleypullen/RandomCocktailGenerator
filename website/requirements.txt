@@ -24,3 +24,4 @@ werkzeug == 2.0.1
 sqlalchemy == 1.4.29
 waitress == 2.0.0
 flask_login == 0.4.1
+pypiwin32 == 223

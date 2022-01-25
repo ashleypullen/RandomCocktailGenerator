@@ -1,1 +1,1 @@
-web: waitress-serve --call "app:create_app"
+web: waitress-serve --call "website:create_app"
