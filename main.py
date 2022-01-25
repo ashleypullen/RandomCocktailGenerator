@@ -3,12 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 from flask_login import current_user
-from website import create_app
 from flask import Blueprint, render_template
 import requests
 import json
-
-app = create_app()
 
 db = SQLAlchemy()
 DB_NAME = "database.db"
@@ -94,4 +91,4 @@ def randomCocktail():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    create_app.run(debug=True)
