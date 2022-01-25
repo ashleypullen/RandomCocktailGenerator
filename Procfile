@@ -1,0 +1,1 @@
+web: waitress-serve --port=$PORT __init__:create_app
