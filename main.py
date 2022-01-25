@@ -43,7 +43,7 @@ def create_database(app):
         db.create_all(app=app)
         print('Created Database!')
 
-@app.route('/random')
+@create_app.route('/random')
 def randomCocktail():
     request = requests.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     cocktails = request.content
