@@ -7,6 +7,8 @@ from flask import Blueprint, render_template
 import requests
 import json
 
+
+
 db = SQLAlchemy()
 DB_NAME = "database.db"
 
@@ -37,13 +39,15 @@ def create_app():
 
     return app
 
+app = create_app()    
+
 
 def create_database(app):
     if not path.exists('website/' + DB_NAME):
         db.create_all(app=app)
         print('Created Database!')
 
-@create_app.route('/random')
+@app.route('/random')
 def randomCocktail():
     request = requests.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     cocktails = request.content
@@ -91,4 +95,4 @@ def randomCocktail():
 
 
 if __name__ == "__main__":
-    create_app.run(debug=True)
+    app.run(debug=True)
