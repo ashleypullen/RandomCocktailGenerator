@@ -1,5 +1,4 @@
 from flask_login import current_user
-from website import create_app
 from flask import Blueprint, render_template
 import requests
 import json
